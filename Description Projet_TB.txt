@@ -1,0 +1,39 @@
+1. Énoncé 
+
+Algorithmes d’improvisation
+
+
+
+2. Description 
+
+Ce projet permettra de faire de l'improvisation en live, en permettant de séquencer des patterns de batteries, de basse et de synthétiseurs en midi, et de traiter une banque de samples en audio. On pourra choisir différents algorithmes, pour les gammes ou séquences par exemples, ou la façon dont les samples seront traités (effets, longueur...). Il faudrait pouvoir lancer les algorithmes par midi et si possible pouvoir l'utiliser en tant que vst. Les algorithmes permettront des performances aléatoires. J'aimerais pouvoir proposer une interface minimaliste.
+
+
+
+3. Analyse des besoins 
+
+Algorithmie : gammes et accords, séquences aléatoires
+Samples : traitements et contrôles 
+Interface : définir les éléments importants
+
+
+
+4. Acquisition de connaissances 
+
+Recherche sur les algorithmes de jeu aléatoire
+Traitements et contrôles sur des fichiers audio
+
+
+
+5. Modèle 
+
+Algorithmes : Ils vont définir différentes parties/intentions de jeu aléatoires, en envoyant du midi. On pourrait en avoir un qui lance des séquences plus rapides, un autre plus lent, un autre plus ambiant. 
+
+Traitements : la façon dont seront gérés les samples, en fonction des algorithmes choisis. On pourrait avoir le contrôle sur les paramètres des effets, le début/longueur, enveloppe du son, etc..
+
+
+
+6. Méthodes 
+
+Un objet comprenant la parties algorithme : gammes/notes et séquençage aléatoire avant de l'envoyer en midi vers différents instruments.
+Un objet traitant l'audio : chargement de plusieurs fichiers, effets et séquençage.
