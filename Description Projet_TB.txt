@@ -37,3 +37,14 @@ Traitements : la façon dont seront gérés les samples, en fonction des algorit
 
 Un objet comprenant la parties algorithme : gammes/notes et séquençage aléatoire avant de l'envoyer en midi vers différents instruments.
 Un objet traitant l'audio : chargement de plusieurs fichiers, effets et séquençage.
+
+
+################# Commentaires ################
+
+Excellent projet!
+
+Un patch de concert / environnement autonome me semble plus adapté pour ce projet qu'un VST. Sans parler de la charge de travail supplémentaire qu'implique la création du VST (avec JUCE par exemple), cela pourrait aussi s'avérer limitatif (un VST fait à partir d'une patch puredata restreint la programmation aux objets vanilla). À réfléchir!
+
+10/10
+
+
