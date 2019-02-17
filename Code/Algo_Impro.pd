@@ -1,4 +1,4 @@
-#N canvas 36 23 1519 848 10;
+#N canvas 60 68 1519 848 10;
 #N canvas 0 50 450 300 (subpatch) 0;
 #X array ori 25 float 3;
 #A 0 7 13 12 16 12 6 17 1 16 16 9 11 22 10 5 11 13 11 6 13 17 4 12
@@ -250,6 +250,19 @@
 #X msg 547 681 1;
 #X text 884 650 Afin d'éviter les problèmes de degrés de gamme \,
 ça sera des power-chords !;
+#X obj 1159 239 adc~ 1;
+#X obj 1159 300 env~;
+#X floatatom 1159 321 5 0 0 0 - - -, f 5;
+#X obj 1155 418 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1261 324 bonk~;
+#X obj 1147 345 moses 65;
+#X msg 1142 445 36;
+#X obj 1152 502 noteout;
+#X obj 1159 260 lop~ 100;
+#X msg 1179 447 120;
+#X msg 1276 264 thresh 55 60;
+#X obj 1261 345 print;
 #X connect 1 0 9 0;
 #X connect 2 0 71 0;
 #X connect 3 0 7 0;
@@ -337,3 +350,15 @@
 #X connect 111 0 110 0;
 #X connect 112 0 113 0;
 #X connect 113 0 80 2;
+#X connect 115 0 123 0;
+#X connect 116 0 117 0;
+#X connect 117 0 119 0;
+#X connect 117 0 120 0;
+#X connect 118 0 121 0;
+#X connect 118 0 124 0;
+#X connect 119 0 126 0;
+#X connect 120 1 118 0;
+#X connect 121 0 122 0;
+#X connect 123 0 116 0;
+#X connect 124 0 122 1;
+#X connect 125 0 119 0;
