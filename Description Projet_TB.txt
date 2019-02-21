@@ -11,6 +11,10 @@ Ce projet permettra de faire de l'improvisation en live, en permettant de séque
 17/02/2019
 Création d'un objet qui permettra de trigger un son de kick avec l'entrée audio d'une guitare, pour faire des rythmiques en direct.
 
+21/02/2019
+L'algorithme de trig guitare/kick fonctionne, encore quelques paramètres à régler pour que ça soit parfait, notamment au niveau du threshold.
+Video : https://tinyurl.com/yyxjdqgm
+
 3. Analyse des besoins 
 
 Algorithmie : gammes et accords, séquences aléatoires
