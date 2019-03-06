@@ -28,6 +28,9 @@ Interface : définir les éléments importants
 Recherche sur les algorithmes de jeu aléatoire
 Traitements et contrôles sur des fichiers audio
 
+Inspiration pour le step sequencer pour la batterie :
+http://write.flossmanuals.net/pure-data/step-sequencer/
+J'en ai finalement trouvé un que j'ai commencé à modifier pour adapter à mes besoins (midi notamment)
 
 
 5. Modèle 
@@ -42,6 +45,13 @@ Traitements : la façon dont seront gérés les samples, en fonction des algorit
 
 Un objet comprenant la parties algorithme : gammes/notes et séquençage aléatoire avant de l'envoyer en midi vers différents instruments.
 Un objet traitant l'audio : chargement de plusieurs fichiers, effets et séquençage.
+
+
+06/03/2019
+Ajout du step sequencer pour la partie de drum, seul petit soucis : lorsqu'on clic pour ajouter un pattern, ça trig un message qui fait jouer la drum.
+Ajout de gate pour stopper les différents algorithmes sans les exclure du tempo general.
+Ménage sur la patch principale en mettant les algorithmes dans des boites personnelles.
+
 
 
 ################# Commentaires ################
