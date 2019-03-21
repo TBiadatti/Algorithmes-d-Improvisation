@@ -32,6 +32,9 @@ Inspiration pour le step sequencer pour la batterie :
 http://write.flossmanuals.net/pure-data/step-sequencer/
 J'en ai finalement trouvé un que j'ai commencé à modifier pour adapter à mes besoins (midi notamment)
 
+Je me suis servi des exemples sur ce site pour la partie sampling :
+http://www.pd-tutorial.com/english/ch03s04.html
+
 
 5. Modèle 
 
@@ -51,6 +54,10 @@ Un objet traitant l'audio : chargement de plusieurs fichiers, effets et séquen�
 Ajout du step sequencer pour la partie de drum, seul petit soucis : lorsqu'on clic pour ajouter un pattern, ça trig un message qui fait jouer la drum.
 Ajout de gate pour stopper les différents algorithmes sans les exclure du tempo general.
 Ménage sur la patch principale en mettant les algorithmes dans des boites personnelles.
+
+21/03/2019
+Ajout du début de travail sur la partie sampler : un premier module créé, le dossier contenant quelques samples et le début du module des effets.
+
 
 
 

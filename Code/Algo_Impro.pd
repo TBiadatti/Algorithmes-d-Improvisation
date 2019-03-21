@@ -1,4 +1,187 @@
-#N canvas 161 55 1391 648 10;
+#N canvas 106 195 1391 648 10;
+#X obj 850 31 hsl 128 15 80 160 0 0 tempo empty TEMPO -2 -8 0 10 -204800
+-1 -1 0 1;
+#X obj 1001 30 tgl 15 0 start empty START 17 7 0 10 -258113 -1 -1 0
+1;
+#X obj 824 31 bng 15 250 50 0 empty start empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 846 51 5 0 0 0 - - -, f 5;
+#X obj 847 98 hradio 15 1 0 5 empty empty MELO_Noire/Croche/Double/Blanche/Ronde
+0 -8 0 10 -232576 -1 -1 2;
+#X obj 847 118 s tempo_mel;
+#X obj 848 159 hradio 15 1 0 5 empty empty CHORDS_Noire/Croche/Double/Blanche/Ronde
+0 -8 0 10 -203904 -1 -1 4;
+#X obj 848 179 s tempo_chords;
+#N canvas 299 345 397 381 Melo 0;
+#X obj 26 99 tgl 15 0 empty start empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 23 206 t f f;
+#X obj 55 226 sel 0;
+#X obj 23 266 tabread edit;
+#X obj 23 286 + 36;
+#X obj 55 246 s end_of_cycle;
+#X obj 107 121 - 1;
+#X obj 23 185 counter 0 15;
+#X obj 107 101 expr size("ori");
+#X obj 121 81 loadbang;
+#X obj 107 61 r end_of_cycle;
+#X obj 53 39 Note_duration_tb;
+#X obj 26 119 metro;
+#X floatatom 156 278 5 0 0 0 - - -, f 5;
+#X obj 156 215 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 53 17 r tempo_mel;
+#X obj 156 235 random 40;
+#X obj 156 257 + 87;
+#X text 223 238 random velocité;
+#X obj 23 306 makenote 127 100;
+#X obj 23 357 noteout;
+#X obj 161 314 loadbang;
+#X msg 159 342 1;
+#X obj 24 155 gate;
+#X obj 132 156 tgl 15 0 empty stop_melo empty 17 7 0 10 -261234 -1
+-1 1 1;
+#X connect 0 0 12 0;
+#X connect 1 0 3 0;
+#X connect 1 1 2 0;
+#X connect 2 0 5 0;
+#X connect 3 0 4 0;
+#X connect 4 0 19 0;
+#X connect 6 0 7 4;
+#X connect 7 0 1 0;
+#X connect 8 0 6 0;
+#X connect 9 0 8 0;
+#X connect 10 0 8 0;
+#X connect 11 0 12 1;
+#X connect 12 0 14 0;
+#X connect 12 0 23 1;
+#X connect 13 0 19 1;
+#X connect 14 0 16 0;
+#X connect 15 0 11 0;
+#X connect 16 0 17 0;
+#X connect 17 0 13 0;
+#X connect 19 0 20 0;
+#X connect 19 1 20 1;
+#X connect 21 0 22 0;
+#X connect 22 0 20 2;
+#X connect 23 0 7 0;
+#X connect 24 0 23 0;
+#X restore 1162 48 pd Melo;
+#N canvas 32 324 603 473 chords 0;
+#X obj 28 100 tgl 15 0 empty start empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 28 208 t f f;
+#X obj 60 228 sel 0;
+#X obj 28 268 tabread edit;
+#X obj 28 288 + 36;
+#X obj 60 248 s end_of_cycle;
+#X obj 109 122 - 1;
+#X obj 28 187 counter 0 15;
+#X obj 109 102 expr size("ori");
+#X obj 123 82 loadbang;
+#X obj 109 62 r end_of_cycle;
+#X obj 28 120 metro;
+#X floatatom 161 280 5 0 0 0 - - -, f 5;
+#X obj 161 217 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 225 239 random velocité;
+#X obj 28 308 makenote 127 100;
+#X obj 15 437 noteout;
+#X text 211 406 channel midi;
+#X obj 55 18 r tempo_chords;
+#X obj 161 236 random 20;
+#X obj 161 259 + 100;
+#X obj 28 329 * 1;
+#X obj 41 352 + 7;
+#X obj 71 351 + 12;
+#X obj 55 40 Note_duration_tb;
+#X obj 71 438 noteout;
+#X obj 126 439 noteout;
+#X msg 169 404 2;
+#X obj 171 376 loadbang;
+#X text 156 321 Afin d'éviter les problèmes de degrés de gamme \,
+ça sera des power-chords !;
+#X obj 28 157 gate;
+#X obj 157 155 tgl 15 0 empty stop_chords on_off 17 7 0 10 -203904
+-1 -1 1 1;
+#X connect 0 0 11 0;
+#X connect 1 0 3 0;
+#X connect 1 1 2 0;
+#X connect 2 0 5 0;
+#X connect 3 0 4 0;
+#X connect 4 0 15 0;
+#X connect 6 0 7 4;
+#X connect 7 0 1 0;
+#X connect 8 0 6 0;
+#X connect 9 0 8 0;
+#X connect 10 0 8 0;
+#X connect 11 0 13 0;
+#X connect 11 0 30 1;
+#X connect 12 0 15 1;
+#X connect 13 0 19 0;
+#X connect 15 0 21 0;
+#X connect 15 1 16 1;
+#X connect 15 1 25 1;
+#X connect 15 1 26 1;
+#X connect 18 0 24 0;
+#X connect 19 0 20 0;
+#X connect 20 0 12 0;
+#X connect 21 0 22 0;
+#X connect 21 0 23 0;
+#X connect 21 0 16 0;
+#X connect 22 0 25 0;
+#X connect 23 0 26 0;
+#X connect 24 0 11 1;
+#X connect 27 0 16 2;
+#X connect 27 0 25 2;
+#X connect 27 0 26 2;
+#X connect 28 0 27 0;
+#X connect 30 0 7 0;
+#X connect 31 0 30 0;
+#X restore 1162 69 pd chords;
+#N canvas 0 23 684 309 Metal 0;
+#X obj 32 111 adc~ 1;
+#X obj 221 138 env~;
+#X floatatom 221 159 5 0 0 0 - - -, f 5;
+#X obj 91 180 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 91 156 bonk~;
+#X msg 88 204 36;
+#X obj 88 226 noteout;
+#X obj 32 132 lop~ 100;
+#X msg 119 204 127;
+#X msg 174 91 learn 0;
+#X msg 174 67 learn 10;
+#X msg 174 115 thresh 65 65;
+#X text 265 60 Démarrer avec Learn 10 Arrêter le learn avec 0 Vérifier
+les valeurs du threshold avec la valeur sortant de env~ Attaquer franchement/sèchement
+;
+#X text 162 225 ça fonctionne : https://tinyurl.com/yyxjdqgm;
+#X connect 0 0 7 0;
+#X connect 1 0 2 0;
+#X connect 3 0 5 0;
+#X connect 3 0 8 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 7 0 1 0;
+#X connect 7 0 4 0;
+#X connect 8 0 6 1;
+#X connect 9 0 4 0;
+#X connect 10 0 4 0;
+#X connect 11 0 4 0;
+#X restore 1162 112 pd Metal generator;
+#X obj 844 287 step_seq;
+#X obj 848 218 hradio 15 1 0 1 empty empty DRUM_tempo 0 -8 0 10 -228856
+-1 -1 3;
+#X obj 848 238 s tempo_drum;
+#X obj 931 98 tgl 15 1 stop_melo empty On_Off_Melo 17 7 0 10 -261234
+-1 -1 1 1;
+#X obj 935 158 tgl 15 1 stop_chords empty On_Off_Chords 17 7 0 10 -232576
+-1 -1 1 1;
+#X obj 933 237 tgl 15 1 stop_drum empty On_Off_Chords 17 7 0 10 -262130
+-1 -1 1 1;
+#X obj 31 23 module_sample1;
+#N canvas 107 185 880 586 algo_random 0;
 #N canvas 0 50 450 300 (subpatch) 0;
 #X array ori 25 float 3;
 #A 0 7 13 12 16 12 6 17 1 16 16 9 11 22 10 5 11 13 11 6 13 17 4 12
@@ -179,187 +362,6 @@
 #X floatatom 365 22 5 0 0 0 - - -, f 5;
 #X msg 365 41 \; ori resize \$1 \; edit resize \$1 \;;
 #X text 403 23 taille des arrays;
-#X obj 850 31 hsl 128 15 80 160 0 0 tempo empty TEMPO -2 -8 0 10 -204800
--1 -1 0 1;
-#X obj 1001 30 tgl 15 0 start empty START 17 7 0 10 -258113 -1 -1 0
-1;
-#X obj 824 31 bng 15 250 50 0 empty start empty 17 7 0 10 -262144 -1
--1;
-#X floatatom 846 51 5 0 0 0 - - -, f 5;
-#X obj 847 98 hradio 15 1 0 5 empty empty MELO_Noire/Croche/Double/Blanche/Ronde
-0 -8 0 10 -232576 -1 -1 2;
-#X obj 847 118 s tempo_mel;
-#X obj 848 159 hradio 15 1 0 5 empty empty CHORDS_Noire/Croche/Double/Blanche/Ronde
-0 -8 0 10 -203904 -1 -1 4;
-#X obj 848 179 s tempo_chords;
-#N canvas 299 345 397 381 Melo 0;
-#X obj 26 99 tgl 15 0 empty start empty 17 7 0 10 -262144 -1 -1 0 1
-;
-#X obj 23 206 t f f;
-#X obj 55 226 sel 0;
-#X obj 23 266 tabread edit;
-#X obj 23 286 + 36;
-#X obj 55 246 s end_of_cycle;
-#X obj 107 121 - 1;
-#X obj 23 185 counter 0 15;
-#X obj 107 101 expr size("ori");
-#X obj 121 81 loadbang;
-#X obj 107 61 r end_of_cycle;
-#X obj 53 39 Note_duration_tb;
-#X obj 26 119 metro;
-#X floatatom 156 278 5 0 0 0 - - -, f 5;
-#X obj 156 215 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 53 17 r tempo_mel;
-#X obj 156 235 random 40;
-#X obj 156 257 + 87;
-#X text 223 238 random velocité;
-#X obj 23 306 makenote 127 100;
-#X obj 23 357 noteout;
-#X obj 161 314 loadbang;
-#X msg 159 342 1;
-#X obj 24 155 gate;
-#X obj 132 156 tgl 15 0 empty stop_melo empty 17 7 0 10 -261234 -1
--1 1 1;
-#X connect 0 0 12 0;
-#X connect 1 0 3 0;
-#X connect 1 1 2 0;
-#X connect 2 0 5 0;
-#X connect 3 0 4 0;
-#X connect 4 0 19 0;
-#X connect 6 0 7 4;
-#X connect 7 0 1 0;
-#X connect 8 0 6 0;
-#X connect 9 0 8 0;
-#X connect 10 0 8 0;
-#X connect 11 0 12 1;
-#X connect 12 0 14 0;
-#X connect 12 0 23 1;
-#X connect 13 0 19 1;
-#X connect 14 0 16 0;
-#X connect 15 0 11 0;
-#X connect 16 0 17 0;
-#X connect 17 0 13 0;
-#X connect 19 0 20 0;
-#X connect 19 1 20 1;
-#X connect 21 0 22 0;
-#X connect 22 0 20 2;
-#X connect 23 0 7 0;
-#X connect 24 0 23 0;
-#X restore 400 386 pd Melo;
-#N canvas 32 324 603 473 chords 0;
-#X obj 28 100 tgl 15 0 empty start empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 28 208 t f f;
-#X obj 60 228 sel 0;
-#X obj 28 268 tabread edit;
-#X obj 28 288 + 36;
-#X obj 60 248 s end_of_cycle;
-#X obj 109 122 - 1;
-#X obj 28 187 counter 0 15;
-#X obj 109 102 expr size("ori");
-#X obj 123 82 loadbang;
-#X obj 109 62 r end_of_cycle;
-#X obj 28 120 metro;
-#X floatatom 161 280 5 0 0 0 - - -, f 5;
-#X obj 161 217 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X text 225 239 random velocité;
-#X obj 28 308 makenote 127 100;
-#X obj 15 437 noteout;
-#X text 211 406 channel midi;
-#X obj 55 18 r tempo_chords;
-#X obj 161 236 random 20;
-#X obj 161 259 + 100;
-#X obj 28 329 * 1;
-#X obj 41 352 + 7;
-#X obj 71 351 + 12;
-#X obj 55 40 Note_duration_tb;
-#X obj 71 438 noteout;
-#X obj 126 439 noteout;
-#X msg 169 404 2;
-#X obj 171 376 loadbang;
-#X text 156 321 Afin d'éviter les problèmes de degrés de gamme \,
-ça sera des power-chords !;
-#X obj 28 157 gate;
-#X obj 157 155 tgl 15 0 empty stop_chords on_off 17 7 0 10 -203904
--1 -1 1 1;
-#X connect 0 0 11 0;
-#X connect 1 0 3 0;
-#X connect 1 1 2 0;
-#X connect 2 0 5 0;
-#X connect 3 0 4 0;
-#X connect 4 0 15 0;
-#X connect 6 0 7 4;
-#X connect 7 0 1 0;
-#X connect 8 0 6 0;
-#X connect 9 0 8 0;
-#X connect 10 0 8 0;
-#X connect 11 0 13 0;
-#X connect 11 0 30 1;
-#X connect 12 0 15 1;
-#X connect 13 0 19 0;
-#X connect 15 0 21 0;
-#X connect 15 1 16 1;
-#X connect 15 1 25 1;
-#X connect 15 1 26 1;
-#X connect 18 0 24 0;
-#X connect 19 0 20 0;
-#X connect 20 0 12 0;
-#X connect 21 0 22 0;
-#X connect 21 0 23 0;
-#X connect 21 0 16 0;
-#X connect 22 0 25 0;
-#X connect 23 0 26 0;
-#X connect 24 0 11 1;
-#X connect 27 0 16 2;
-#X connect 27 0 25 2;
-#X connect 27 0 26 2;
-#X connect 28 0 27 0;
-#X connect 30 0 7 0;
-#X connect 31 0 30 0;
-#X restore 473 386 pd chords;
-#N canvas 0 23 684 309 Metal 0;
-#X obj 32 111 adc~ 1;
-#X obj 221 138 env~;
-#X floatatom 221 159 5 0 0 0 - - -, f 5;
-#X obj 91 180 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 91 156 bonk~;
-#X msg 88 204 36;
-#X obj 88 226 noteout;
-#X obj 32 132 lop~ 100;
-#X msg 119 204 127;
-#X msg 174 91 learn 0;
-#X msg 174 67 learn 10;
-#X msg 174 115 thresh 65 65;
-#X text 265 60 Démarrer avec Learn 10 Arrêter le learn avec 0 Vérifier
-les valeurs du threshold avec la valeur sortant de env~ Attaquer franchement/sèchement
-;
-#X text 162 225 ça fonctionne : https://tinyurl.com/yyxjdqgm;
-#X connect 0 0 7 0;
-#X connect 1 0 2 0;
-#X connect 3 0 5 0;
-#X connect 3 0 8 0;
-#X connect 4 0 3 0;
-#X connect 5 0 6 0;
-#X connect 7 0 1 0;
-#X connect 7 0 4 0;
-#X connect 8 0 6 1;
-#X connect 9 0 4 0;
-#X connect 10 0 4 0;
-#X connect 11 0 4 0;
-#X restore 597 387 pd Metal generator;
-#X obj 844 287 step_seq;
-#X obj 848 218 hradio 15 1 0 1 empty empty DRUM_tempo 0 -8 0 10 -228856
--1 -1 3;
-#X obj 848 238 s tempo_drum;
-#X obj 931 98 tgl 15 1 stop_melo empty On_Off_Melo 17 7 0 10 -261234
--1 -1 1 1;
-#X obj 935 158 tgl 15 1 stop_chords empty On_Off_Chords 17 7 0 10 -232576
--1 -1 1 1;
-#X obj 933 237 tgl 15 1 stop_drum empty On_Off_Chords 17 7 0 10 -262130
--1 -1 1 1;
 #X connect 1 0 6 0;
 #X connect 2 0 4 0;
 #X connect 3 0 2 0;
@@ -388,8 +390,12 @@ les valeurs du threshold avec la valeur sortant de env~ Attaquer franchement/sè
 #X connect 49 0 34 1;
 #X connect 50 0 46 0;
 #X connect 51 0 52 0;
-#X connect 54 0 57 0;
-#X connect 56 0 54 0;
-#X connect 58 0 59 0;
-#X connect 60 0 61 0;
-#X connect 66 0 67 0;
+#X restore 1162 27 pd algo_random;
+#X obj 29 410 effects;
+#X obj 739 458 vsl 15 128 0 1 0 0 master_vol empty Master_Volume 0
+-9 0 10 -261234 -1 -1 7200 1;
+#X connect 0 0 3 0;
+#X connect 2 0 0 0;
+#X connect 4 0 5 0;
+#X connect 6 0 7 0;
+#X connect 12 0 13 0;
