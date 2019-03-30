@@ -1,29 +1,29 @@
-#N canvas 74 160 720 868 10;
+#N canvas 742 60 720 868 10;
 #X obj 37 8 loadbang;
 #X obj 41 109 soundfiler;
 #X obj 43 679 *~;
 #X obj 411 448 hsl 128 15 0 1 0 0 empty MasterVol Volume -2 -8 0 10
--262144 -1 -1 0 0;
+-262144 -1 -1 6200 0;
 #X obj 160 694 line~;
 #X msg 160 670 \$1 20;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array tab1 1.63248e+06 float 2;
 #X coords 0 1 1.63248e+06 -1 200 140 1 0 0;
 #X restore 410 271 graph;
-#X floatatom 39 329 5 0 0 0 - - -, f 5;
+#X floatatom 39 329 5 0 0 0 - - -;
 #X obj 39 424 phasor~;
 #X obj 411 415 hsl 200 15 0 1 0 0 empty empty empty -2 -6 0 8 -262144
--1 -1 11361 1;
+-1 -1 9472 1;
 #X obj 39 397 *;
 #X obj 413 166 hsl 128 15 -2 2 0 0 empty empty Play_speed -2 -6 0 10
 -262144 -1 -1 6350 1;
 #X obj 412 239 hsl 200 15 0 1 0 1 empty empty Right_limit -2 -6 0 10
--262144 -1 -1 10300 1;
+-262144 -1 -1 9900 1;
 #X obj 40 525 +~;
 #X obj 141 419 -;
-#X floatatom 190 384 5 0 0 0 - - -, f 5;
+#X floatatom 190 384 5 0 0 0 - - -;
 #X obj 163 329 t f b;
-#X obj 39 605 *~;
+#X obj 39 584 *~;
 #X obj 69 208 expr 1 / $f1;
 #X obj 69 259 *;
 #X obj 76 297 t b f;
@@ -31,9 +31,9 @@
 #X obj 117 569 unsig~ 20;
 #X obj 39 629 tabread4~ tab1;
 #X obj 412 209 hsl 200 15 0 1 0 1 empty empty Left_limit -2 -6 0 10
--262144 -1 -1 9300 1;
+-262144 -1 -1 8200 1;
 #X obj 40 700 hip~ 20;
-#X floatatom 410 182 5 0 0 0 - - -, f 5;
+#X floatatom 410 182 5 0 0 0 - - -;
 #X msg 444 137 1;
 #X obj 42 738 s~ fxs;
 #X obj 445 74 loadbang;
@@ -46,6 +46,13 @@
 #X msg 112 87 read -resize \$1 tab1;
 #X obj 112 65 openpanel;
 #X text 174 64 Bouton pour charger nouveau sample si besoin;
+#X obj 237 289 f;
+#X obj 263 329 f;
+#X obj 548 448 bng 15 250 50 0 empty empty Play 17 7 0 10 -262144 -1
+-1;
+#X obj 117 504 edge~;
+#X obj 115 471 expr~ if ($v1 < $v2 \, 1 \, 0);
+#X obj 237 445 delay~ 1 1;
 #X connect 0 0 30 0;
 #X connect 1 0 32 0;
 #X connect 1 0 17 1;
@@ -55,10 +62,12 @@
 #X connect 5 0 4 0;
 #X connect 7 0 10 0;
 #X connect 8 0 21 0;
+#X connect 8 0 42 0;
+#X connect 8 0 41 0;
 #X connect 10 0 8 0;
 #X connect 11 0 20 0;
 #X connect 11 0 26 0;
-#X connect 12 0 15 0;
+#X connect 12 0 38 1;
 #X connect 13 0 17 0;
 #X connect 13 0 22 0;
 #X connect 14 0 18 0;
@@ -75,7 +84,7 @@
 #X connect 21 0 13 0;
 #X connect 22 0 9 0;
 #X connect 23 0 2 0;
-#X connect 24 0 16 0;
+#X connect 24 0 37 1;
 #X connect 25 0 28 0;
 #X connect 27 0 11 0;
 #X connect 29 0 27 0;
@@ -85,4 +94,11 @@
 #X connect 33 0 35 0;
 #X connect 34 0 1 0;
 #X connect 35 0 34 0;
+#X connect 37 0 16 0;
+#X connect 38 0 15 0;
+#X connect 39 0 37 0;
+#X connect 39 0 38 0;
+#X connect 40 0 39 0;
+#X connect 41 0 40 0;
+#X connect 42 0 41 1;
 #X coords 0 -1 1 1 230 370 1 400 100;
