@@ -58,6 +58,19 @@ Ménage sur la patch principale en mettant les algorithmes dans des boites perso
 21/03/2019
 Ajout du début de travail sur la partie sampler : un premier module créé, le dossier contenant quelques samples et le début du module des effets.
 
+08/04/2019
+Rajout de la partie effets.
+Remise en forme de la patch principale.
+Début de préparation des presets des trois parties de l'improvisation.
+Bouton Panic en bas à droite coupe l'audio et le midi.
+Les modules des simples possèdent un bouton "open new sample" pour utiliser d'autres samples à la volée.
+
+
+Tout ce qui est contrôlable est coloré.
+MIDI : 	la mélodie part sur le canal 1
+	les accords partent sur le canal 2
+	la drum part sur le canal 3
+
 
 
 

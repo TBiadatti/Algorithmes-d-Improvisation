@@ -1,34 +1,34 @@
-#N canvas 105 228 1120 688 10;
-#X obj 418 263 vcf~ 1;
-#X obj 415 42 vsl 15 128 0.04 9 1 0 empty empty q 0 -9 0 10 -261682
--1 -1 9200 1;
-#X floatatom 451 245 5 0 0 0 - - -;
-#X obj 380 42 vsl 15 128 20 20000 1 1 empty empty freq 0 -9 0 10 -261682
--1 -1 8100 1;
-#X floatatom 434 204 5 0 0 0 - - -;
-#X obj 385 225 gate~;
-#X obj 434 224 sig~;
-#X obj 352 40 tgl 15 0 empty empty on_off_bp -30 -7 0 10 -262144 -1
+#N canvas 258 219 1120 688 10;
+#X obj 351 249 vcf~ 1;
+#X obj 402 43 vsl 15 128 0.04 9 1 0 empty empty q 0 -9 0 10 -261682
+-1 -1 3100 1;
+#X floatatom 384 231 5 0 0 0 - - -;
+#X obj 372 43 vsl 15 128 20 20000 1 1 empty empty freq 0 -9 0 10 -261682
+-1 -1 12700 1;
+#X floatatom 367 190 5 0 0 0 - - -;
+#X obj 318 211 gate~;
+#X obj 367 210 sig~;
+#X obj 260 42 tgl 15 0 empty empty on_off_lp -30 -7 0 10 -262144 -1
 -1 1 1;
 #X obj 32 299 gate~;
-#X obj 336 167 tgl 15 1 empty empty on_off_fxs -30 -7 0 10 -204786
--1 -1 0 1;
+#X obj 334 168 tgl 15 1 empty empty on_off_fxs -30 -7 0 10 -204786
+-1 -1 1 1;
 #X obj 94 179 t b f;
 #X msg 94 200 0;
 #X obj 94 221 expr if ($f2 == 1 \, $f1 \, 1);
-#X text 90 241 condition pour activer les effets ou le signal dry;
-#X obj 706 288 expr 500/$f1;
-#X obj 706 310 + 1.451;
-#X obj 707 332 sig~;
-#X obj 707 353 vd~ buff;
-#X obj 616 352 delread~ buff;
-#X msg 616 325 1.451;
-#X obj 690 375 +~;
-#X obj 694 404 *~;
-#X obj 448 40 tgl 15 0 empty empty Octave 0 -6 0 10 -232576 -1 -1 1
+#X text 9 239 condition pour activer les effets ou le signal dry;
+#X obj 518 237 expr 500/$f1;
+#X obj 518 259 + 1.451;
+#X obj 519 281 sig~;
+#X obj 519 302 vd~ buff;
+#X obj 428 301 delread~ buff;
+#X msg 428 274 1.451;
+#X obj 502 324 +~;
+#X obj 506 353 *~;
+#X obj 450 42 tgl 15 0 empty empty Octave 0 -6 0 10 -232576 -1 -1 1
 1;
-#X obj 667 405 *~;
-#X obj 606 404 tgl 15 1 empty empty Original 0 -6 0 10 -262144 -1 -1
+#X obj 479 354 *~;
+#X obj 418 353 tgl 15 1 empty empty Original 0 -6 0 10 -262144 -1 -1
 1 1;
 #X obj 149 635 dac~;
 #X obj 158 542 *~;
@@ -36,10 +36,10 @@
 #X msg 275 533 \$1 20;
 #X obj 155 563 hip~ 20;
 #X obj 378 406 vsl 15 128 0 1 0 0 empty master_vol empty 0 -9 0 10
--262144 -1 -1 7000 1;
-#X obj 707 443 +~;
-#X obj 422 334 delwrite~ buff 100;
-#X text 419 314 pour octaver;
+-262144 -1 -1 0 1;
+#X obj 519 392 +~;
+#X obj 301 285 delwrite~ buff 100;
+#X text 298 265 pour octaver;
 #X obj 37 73 catch~ fxs;
 #N canvas 308 80 586 391 lfo 0;
 #X obj 204 79 inlet freq;
@@ -73,22 +73,44 @@
 #X connect 7 1 6 1;
 #X connect 8 0 9 0;
 #X connect 9 0 10 0;
-#X restore 858 453 pd lfo;
-#X floatatom 858 394 5 0 0 0 - - -;
-#X floatatom 877 414 5 0 0 0 - - -;
-#X floatatom 897 434 5 0 0 0 - - -;
-#X text 896 394 fréquence;
-#X text 917 414 minimum;
-#X text 937 434 maximum;
-#X obj 746 480 comb~ 20 5 0.3 0.3 0.4;
-#X obj 529 38 vsl 15 128 0.1 5 0 0 empty empty freq_rate 0 -9 0 10
--204800 -1 -1 0 1;
-#X obj 555 50 vsl 15 128 1 10 0 0 empty empty min 0 -9 0 10 -204800
--1 -1 1500 1;
-#X obj 576 50 vsl 15 128 10 15 0 0 empty empty max 0 -9 0 10 -204800
--1 -1 6600 1;
-#X connect 0 0 23 0;
+#X restore 608 319 pd lfo;
+#X floatatom 608 260 5 0 0 0 - - -;
+#X floatatom 627 280 5 0 0 0 - - -;
+#X floatatom 647 300 5 0 0 0 - - -;
+#X text 646 260 fréquence;
+#X text 667 280 minimum;
+#X text 687 300 maximum;
+#X obj 576 340 comb~ 20 5 0.3 0.3 0.4;
+#X obj 500 36 vsl 15 128 0 5 0 0 empty empty rate_chor_flang 0 -9 0
+10 -204800 -1 -1 0 1;
+#X obj 526 48 vsl 15 128 1 10 0 0 empty empty min 0 -9 0 10 -204800
+-1 -1 0 1;
+#X obj 547 48 vsl 15 128 10 15 0 0 empty empty max 0 -9 0 10 -204800
+-1 -1 0 1;
+#X obj 601 34 vsl 15 128 0.1 20 0 0 empty empty rate_trem 0 -9 0 10
+-262130 -1 -1 0 1;
+#X obj 745 227 osc~;
+#X obj 624 47 vsl 15 128 0.2 20 1 0 empty empty shape 0 -9 0 10 -262130
+-1 -1 0 1;
+#X obj 750 270 *~;
+#X obj 750 291 clip~ -1 1;
+#X obj 750 312 *~;
+#X obj 657 48 vsl 15 128 0.2 20 1 0 empty empty depth 0 -9 0 10 -262130
+-1 -1 12700 1;
+#X obj 750 348 +~;
+#X obj 803 340 expr 1-$f1;
+#X obj 676 376 *~;
+#X obj 715 41 vsl 15 128 0 1000 0 0 empty empty DLY 0 -9 0 10 -261234
+-1 -1 0 1;
+#X obj 745 41 vsl 15 128 0 1 0 0 empty empty feedback 0 -9 0 10 -261234
+-1 -1 0 1;
+#X obj 776 404 delwrite~ dly 1000;
+#X obj 877 440 delread4~ dly 150;
+#X obj 747 467 +~;
+#X obj 883 472 *~;
+#X obj 906 418 line \$1 20;
 #X connect 0 0 32 0;
+#X connect 0 1 23 0;
 #X connect 1 0 2 0;
 #X connect 2 0 0 2;
 #X connect 3 0 4 0;
@@ -128,8 +150,27 @@
 #X connect 36 0 35 0;
 #X connect 37 0 35 1;
 #X connect 38 0 35 2;
-#X connect 42 0 26 0;
+#X connect 42 0 55 0;
 #X connect 43 0 36 0;
 #X connect 44 0 37 0;
 #X connect 45 0 38 0;
-#X coords 0 -1 1 1 700 180 1 300 10;
+#X connect 46 0 47 0;
+#X connect 47 0 49 0;
+#X connect 48 0 49 1;
+#X connect 49 0 50 0;
+#X connect 50 0 51 0;
+#X connect 51 0 53 0;
+#X connect 52 0 51 1;
+#X connect 52 0 54 0;
+#X connect 53 0 55 1;
+#X connect 54 0 53 1;
+#X connect 55 0 58 0;
+#X connect 55 0 60 0;
+#X connect 56 0 62 0;
+#X connect 57 0 61 1;
+#X connect 59 0 60 1;
+#X connect 59 0 61 0;
+#X connect 60 0 26 0;
+#X connect 61 0 58 0;
+#X connect 62 0 59 0;
+#X coords 0 -1 1 1 500 180 1 300 10;

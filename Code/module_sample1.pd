@@ -2,8 +2,8 @@
 #X obj 37 8 loadbang;
 #X obj 41 109 soundfiler;
 #X obj 43 679 *~;
-#X obj 411 448 hsl 128 15 0 1 0 0 empty MasterVol Volume -2 -8 0 10
--261234 -1 -1 0 0;
+#X obj 411 448 hsl 128 15 0 1 0 1 empty empty Volume -2 -8 0 10 -261234
+-1 -1 0 0;
 #X obj 160 694 line~;
 #X msg 160 670 \$1 20;
 #N canvas 0 0 450 300 (subpatch) 0;
@@ -13,12 +13,12 @@
 #X floatatom 39 329 5 0 0 0 - - -;
 #X obj 39 424 phasor~;
 #X obj 411 415 hsl 200 15 0 1 0 0 empty empty empty -2 -6 0 8 -262144
--1 -1 9072 1;
+-1 -1 13372 1;
 #X obj 39 397 *;
 #X obj 413 166 hsl 128 15 -2 2 0 0 empty empty Play_speed -2 -6 0 10
 -203904 -1 -1 6350 1;
 #X obj 412 239 hsl 200 15 0 1 0 1 empty empty Right_limit -2 -6 0 10
--204800 -1 -1 9900 1;
+-204800 -1 -1 14800 1;
 #X obj 40 525 +~;
 #X obj 141 419 -;
 #X floatatom 190 384 5 0 0 0 - - -;
@@ -31,7 +31,7 @@
 #X obj 117 569 unsig~ 20;
 #X obj 39 629 tabread4~ tab1;
 #X obj 412 209 hsl 200 15 0 1 0 1 empty empty Left_limit -2 -6 0 10
--204800 -1 -1 8200 1;
+-204800 -1 -1 12900 1;
 #X obj 40 700 hip~ 20;
 #X floatatom 410 182 5 0 0 0 - - -;
 #X msg 444 137 1;
