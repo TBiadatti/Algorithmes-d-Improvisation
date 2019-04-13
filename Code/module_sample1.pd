@@ -13,10 +13,10 @@
 #X floatatom 39 329 5 0 0 0 - - -;
 #X obj 39 424 phasor~;
 #X obj 411 415 hsl 200 15 0 1 0 0 empty empty empty -2 -6 0 8 -262144
--1 -1 13372 1;
+-1 -1 0 1;
 #X obj 39 397 *;
 #X obj 413 166 hsl 128 15 -2 2 0 0 empty empty Play_speed -2 -6 0 10
--203904 -1 -1 6350 1;
+-203904 -1 -1 9525 1;
 #X obj 412 239 hsl 200 15 0 1 0 1 empty empty Right_limit -2 -6 0 10
 -204800 -1 -1 14800 1;
 #X obj 40 525 +~;
