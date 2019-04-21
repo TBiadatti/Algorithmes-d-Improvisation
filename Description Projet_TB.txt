@@ -72,6 +72,13 @@ MIDI : 	la mélodie part sur le canal 1
 	la drum part sur le canal 3
 
 
+20/04/2019
+Quelques ajustements pour le metal generator.
+Tout fonctionne et on peut activer les différentes parties séparément pour mieux les enchainer. 
+Je pense pour la suite enlever la partie "chords" pour la remplacer par une partie de Basse, qui manque plus à cette improvisation que des accords.
+Il serait interessant de trouver un moyen pour envoyer la partie samples dans des canaux audios virtuels pour les récuperer et les traiter directement dans la session Live.
+Il reste à déterminer dans quel ordre jouer les parties, mais ça se décidera petit à petit en répétant le tout avec le live. En attendant, tout fonctionne tel quel.
+
 
 
 ################# Commentaires ################
