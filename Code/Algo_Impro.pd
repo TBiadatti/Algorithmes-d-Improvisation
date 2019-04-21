@@ -1,19 +1,19 @@
 #N canvas 208 153 1197 754 10;
 #X obj 436 579 hsl 128 15 80 160 0 0 tempo empty TEMPO -2 -8 0 10 -204800
--1 -1 6435 1;
-#X obj 587 578 tgl 15 0 start panic START 17 7 0 10 -258113 -1 -1 1
+-1 -1 6861 1;
+#X obj 587 578 tgl 15 0 start panic START 17 7 0 10 -258113 -1 -1 0
 1;
 #X obj 410 579 bng 15 250 50 0 empty start empty 17 7 0 10 -262144
 -1 -1;
 #X floatatom 432 599 5 0 0 0 - - -;
 #X obj 432 633 hradio 15 1 1 5 empty empty MELO_Noire/Croche/Double/Blanche/Ronde
-0 -8 0 10 -232576 -1 -1 1;
+0 -8 0 10 -232576 -1 -1 2;
 #X obj 432 653 s tempo_mel;
 #X obj 433 694 hradio 15 1 1 5 empty empty CHORDS_Noire/Croche/Double/Blanche/Ronde
 0 -8 0 10 -203904 -1 -1 4;
 #X obj 433 714 s tempo_chords;
-#N canvas 1283 198 397 381 Melo 1;
-#X obj 26 99 tgl 15 0 empty start empty 17 7 0 10 -262144 -1 -1 1 1
+#N canvas 1283 198 397 381 Melo 0;
+#X obj 26 99 tgl 15 0 empty start empty 17 7 0 10 -262144 -1 -1 0 1
 ;
 #X obj 23 206 t f f;
 #X obj 55 226 sel 0;
@@ -68,7 +68,7 @@
 #X connect 24 0 16 0;
 #X restore 559 436 pd Melo;
 #N canvas 32 324 603 473 chords 0;
-#X obj 28 100 tgl 15 0 empty start empty 17 7 0 10 -262144 -1 -1 1
+#X obj 28 100 tgl 15 0 empty start empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 28 208 t f f;
 #X obj 60 228 sel 0;
@@ -98,7 +98,7 @@
 ça sera des power-chords !;
 #X obj 28 157 gate;
 #X obj 157 155 tgl 15 0 empty stop_chords on_off 17 7 0 10 -203904
--1 -1 0 1;
+-1 -1 1 1;
 #X obj 161 236 random 97;
 #X obj 161 259 + 30;
 #X obj 41 352 + 5;
@@ -139,7 +139,7 @@
 #X connect 31 1 20 1;
 #X connect 31 1 21 1;
 #X restore 559 457 pd chords;
-#N canvas 105 332 684 309 Metal 0;
+#N canvas 105 332 684 309 Metal 1;
 #X obj 38 103 adc~ 1;
 #X obj 221 138 env~;
 #X floatatom 221 159 5 0 0 0 - - -;
@@ -166,11 +166,13 @@ les valeurs du threshold avec la valeur sortant de env~ Attaquer franchement/sè
 #X obj 185 22 bng 15 250 50 0 empty mtl_gen_learn empty 17 7 0 10 -262144
 -1 -1;
 #X text 251 15 bang reçoivent de la patch principale;
+#X msg 54 206 35;
 #X connect 0 0 16 0;
 #X connect 1 0 2 0;
 #X connect 3 0 5 0;
 #X connect 3 0 7 0;
 #X connect 3 0 13 0;
+#X connect 3 0 20 0;
 #X connect 4 0 14 1;
 #X connect 5 0 6 0;
 #X connect 7 0 6 1;
@@ -184,6 +186,7 @@ les valeurs du threshold avec la valeur sortant de env~ Attaquer franchement/sè
 #X connect 16 0 4 0;
 #X connect 17 0 8 0;
 #X connect 18 0 9 0;
+#X connect 20 0 6 0;
 #X restore 559 481 pd Metal generator;
 #X obj 678 384 step_seq;
 #X obj 31 600 hradio 15 1 1 1 empty empty DRUM_tempo 0 -8 0 10 -228856
@@ -192,11 +195,11 @@ les valeurs du threshold avec la valeur sortant de env~ Attaquer franchement/sè
 #X obj 516 633 tgl 15 1 stop_melo stop_melo On_Off_Melo 17 7 0 10 -261234
 -1 -1 1 1;
 #X obj 520 693 tgl 15 1 stop_chords stop_chords On_Off_Chords 17 7
-0 10 -232576 -1 -1 0 1;
+0 10 -232576 -1 -1 1 1;
 #X obj 116 619 tgl 15 1 stop_drum empty On_Off_Drums 17 7 0 10 -262130
 -1 -1 1 1;
 #X obj 4 5 module_sample1;
-#N canvas 17 415 880 586 algo_random 0;
+#N canvas 17 415 880 586 algo_random 1;
 #N canvas 0 50 450 300 (subpatch) 0;
 #X array ori 59 float 3;
 #A 0 17 15 18 21 14 12 22 4 21 19 3 4 2 13 18 13 13 3 1 17 16 7 2 1
@@ -210,9 +213,9 @@ les valeurs du threshold avec la valeur sortant de env~ Attaquer franchement/sè
 #X obj 231 85 list-tabdump ori;
 #N canvas 0 50 450 300 (subpatch) 0;
 #X array edit 59 float 3;
-#A 0 29 26 31 15 56 20 34 29 36 32 5 7 3 46 31 22 22 5 2 29 27 12 5
-2 26 38 26 15 26 38 24 22 3 14 15 17 32 14 34 12 27 56 20 20 8 26 27
-2 43 15 27 5 32 12 5 7 7 3 7;
+#A 0 29 15 31 36 24 20 38 7 63 56 7 36 5 43 27 5 29 27 15 10 2 26 19
+17 0 24 12 7 48 3 14 15 17 32 46 34 34 2 27 26 29 0 26 27 19 31 15
+27 5 32 12 14 3 7 3 7 14 7 18;
 #X coords 0 60 59 0 200 140 1;
 #X restore 21 197 graph;
 #N canvas 3 86 359 240 write_new_array 0;
@@ -310,7 +313,7 @@ les valeurs du threshold avec la valeur sortant de env~ Attaquer franchement/sè
 #X floatatom 718 105 5 0 0 0 - - -;
 #X text 383 104 ambitus du random;
 #X text 565 104 pourcentage de chance;
-#X obj 326 282 hradio 17 1 0 12 empty empty empty 0 -8 0 10 -262144
+#X obj 326 282 hradio 17 1 1 12 empty empty empty 0 -8 0 10 -262144
 -1 -1 0;
 #X text 329 267 C C# D D# E F F# G Ab A Bb B;
 #X text 336 255 -------- tonique --------;
@@ -457,7 +460,7 @@ les valeurs du threshold avec la valeur sortant de env~ Attaquer franchement/sè
 -1 -1;
 #X obj 90 167 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 130 75 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 130 75 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 114 123 sel 0 1;
 #X obj 89 223 timer;
